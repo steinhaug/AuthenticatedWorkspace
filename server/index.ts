@@ -71,10 +71,10 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  const port = 5000;
+  const port = process.env.PORT || 5000;
   server.listen({
     port,
-    host: "0.0.0.0",
+    host: "0.0.0.0", // Bind to all interfaces
     reusePort: true,
   }, () => {
     const address = `http://localhost:${port}`;
