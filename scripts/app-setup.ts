@@ -1,6 +1,11 @@
 import * as child_process from 'child_process';
 import { existsSync } from 'fs';
 import { promisify } from 'util';
+import { Pool, neonConfig } from '@neondatabase/serverless';
+import ws from 'ws';
+
+// Set WebSocket for Neon database
+neonConfig.webSocketConstructor = ws;
 
 const exec = promisify(child_process.exec);
 
