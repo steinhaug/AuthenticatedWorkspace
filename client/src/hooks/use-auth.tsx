@@ -1,3 +1,4 @@
+// Updated for GitHub sync
 import { createContext, ReactNode, useContext } from "react";
 import {
   useQuery,
@@ -104,3 +105,4 @@ export function useAuth() {
   }
   return context;
 }
+

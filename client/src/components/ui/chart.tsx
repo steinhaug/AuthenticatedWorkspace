@@ -1,3 +1,4 @@
+// Updated for GitHub sync
 import * as React from "react"
 import * as RechartsPrimitive from "recharts"
 
@@ -361,3 +362,4 @@ export {
   ChartLegendContent,
   ChartStyle,
 }
+

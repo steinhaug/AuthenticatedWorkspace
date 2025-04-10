@@ -1,3 +1,4 @@
+// Updated for GitHub sync
 import { useAuth } from "@/hooks/use-auth";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
@@ -99,3 +100,4 @@ export default function ProfilePage() {
     </div>
   );
 }
+

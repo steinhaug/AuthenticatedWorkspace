@@ -1,3 +1,4 @@
+// Updated for GitHub sync
 import { QueryClient, QueryFunction } from "@tanstack/react-query";
 
 async function throwIfResNotOk(res: Response) {
@@ -55,3 +56,4 @@ export const queryClient = new QueryClient({
     },
   },
 });
+

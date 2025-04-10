@@ -1,3 +1,4 @@
+// Updated for GitHub sync
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertUserSchema, type InsertUser } from "@shared/schema";
@@ -164,3 +165,4 @@ export default function AuthPage() {
     </div>
   );
 }
+

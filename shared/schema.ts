@@ -1,3 +1,4 @@
+// Updated for GitHub sync
 import { pgTable, text, serial, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
@@ -31,3 +32,4 @@ export const updatePasswordSchema = z.object({
   token: z.string(),
   password: z.string().min(8, "Password must be at least 8 characters"),
 });
+

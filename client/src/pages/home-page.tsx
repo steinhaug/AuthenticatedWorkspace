@@ -1,3 +1,4 @@
+// Updated for GitHub sync
 import { useAuth } from "@/hooks/use-auth";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -46,3 +47,4 @@ export default function HomePage() {
     </div>
   );
 }
+

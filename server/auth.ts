@@ -1,3 +1,4 @@
+// Updated for GitHub sync
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import { Express } from "express";
@@ -91,3 +92,4 @@ export function setupAuth(app: Express) {
     res.json(req.user);
   });
 }
+

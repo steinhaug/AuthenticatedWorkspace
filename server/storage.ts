@@ -1,3 +1,4 @@
+// Updated for GitHub sync
 import { users, type User, type InsertUser } from "@shared/schema";
 import session from "express-session";
 import { db } from "./db";
@@ -70,3 +71,4 @@ export class DatabaseStorage implements IStorage {
 }
 
 export const storage = new DatabaseStorage();
+
