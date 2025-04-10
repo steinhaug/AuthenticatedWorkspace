@@ -3,8 +3,12 @@ import { createServer, type Server } from "http";
 import { setupAuth } from "./auth";
 import { storage } from "./storage";
 import { z } from "zod";
+import * as schema from "@shared/schema";
 import { resetPasswordSchema, updatePasswordSchema } from "@shared/schema";
 import { randomBytes } from "crypto";
+import { eq } from "drizzle-orm";
+import { db } from "./db";
+import { hashPassword } from "./auth";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   setupAuth(app);
@@ -42,9 +46,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { token, password } = await updatePasswordSchema.parseAsync(req.body);
       
-      const user = Array.from(storage.users.values()).find(
-        (u) => u.resetToken === token
-      );
+      // Search for user with the given reset token
+      const users = await db.select().from(schema.users).where(eq(schema.users.resetToken, token));
+      const user = users[0];
 
       if (!user || !user.resetTokenExpiry || new Date(user.resetTokenExpiry) < new Date()) {
         return res.status(400).json({ message: "Invalid or expired token" });
@@ -61,6 +65,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (error instanceof z.ZodError) {
         res.status(400).json({ message: error.message });
       } else {
+        console.error("Reset password error:", error);
         res.status(500).json({ message: "Internal server error" });
       }
     }
